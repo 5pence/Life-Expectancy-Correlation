@@ -1,0 +1,9 @@
+.section-heading, #discipline-selector {
+	display: inline-block;
+	float: none;
+	margin: 0;
+}
+
+#discipline-selector {
+	margin-left: 15px;
+}
