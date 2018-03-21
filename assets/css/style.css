@@ -1,9 +1,15 @@
 .section-heading, #discipline-selector {
 	display: inline-block;
 	float: none;
-	margin: 0;
+	margin: 15px;
+	color: #fafafa;
 }
 
-#discipline-selector {
+#country-selector {
 	margin-left: 15px;
+	margin-top: 15px;
+}
+
+#status-balance-pie {
+	height: 350px;
 }

@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Life Expectancy Correlations</title>
+    <title>World Health Organisation Country Data 2015</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/dc.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.10/dc.min.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script type="text/javascript" src="assets/js/d3.min.js"></script>
     <script type="text/javascript" src="assets/js/crossfilter.min.js"></script>
-    <script type="text/javascript" src="assets/js/dc.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.10/dc.min.js"></script>
     <script type="text/javascript" src="assets/js/queue.min.js"></script>
     <script type="text/javascript" src="assets/js/graph.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
-            <a href="#" class="navbar-brand">Life Expectancy Correlations</a>
+            <a href="#" class="navbar-brand">World Health Organisation Country Data 2015</a>
+            <div id="country-selector"></div>
+            <h4 class="section-heading">Choose Country</h4>
         </div>
     </nav>
 
@@ -27,20 +29,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <h1 class="section-heading">Life Expectancy Correlations</h1>
-                        <div id="country-selector"></div>
+                        <p>Some explaination text could go here...</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <p class="section-paragraph">Developed vs Developing:</p>
+                        <h5 class="section-heading">Developed vs Developing:</h5>
                     </div>
-
-            <div class="col-xs-12 col-sm-6 col-lg-6">
-                <i class="fa fa-female fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-developing-countries"></span>
-                <i class="fa fa-male fa-gender" aria-hidden="true"></i> <span class="number-box" id="percent-of-developed-countries"></span>
+                </div>
             </div>
-          </div>
+        </section>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 text-center custom-chart" id="status-balance-pie"></div>
+                    <div class="col-xs-12 col-sm-4 text-center custom-chart" id="average-Life-expectancy"></div>
+                    <div class="col-xs-12 col-sm-4 text-center custom-chart" id="average-adult-mortality"></div>
+                </div>
             </div>
         </section>
     </main>
