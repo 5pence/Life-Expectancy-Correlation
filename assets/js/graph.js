@@ -1,5 +1,5 @@
 queue()
-    .defer(d3.csv, "assets/csv/WHOData.csv")
+    .defer(d3.csv, "assets/csv/WHODatagnippp.csv")
     .await(makeGraphs);
 
 
@@ -9,7 +9,9 @@ function makeGraphs(error, worldData) {
     show_country_selector(ndx);
     show_status_balance(ndx);
     show_average_life_expectancy(ndx);
-     show_average_adultMortality(ndx)
+    show_average_adultMortality(ndx);
+   show_life_expectancy_vs_GDP(ndx);
+
 
     dc.renderAll();
 }
@@ -23,9 +25,9 @@ function show_country_selector(ndx)
     var select = dc.selectMenu("#country-selector")
         .dimension(countryDim)
         .group(countrySelect);
-    select.title(function (d) {
-        return d.key;
-    })
+         select.title(function (d) {
+            return d.key;
+        })
 }
 
 function show_status_balance(ndx) {
@@ -91,6 +93,7 @@ function show_average_life_expectancy(ndx) {
 
 function  show_average_adultMortality(ndx) {
     var statusDim = ndx.dimension(dc.pluck("Status"));
+
     var averageAdultMortalityByStatus = statusDim.group().reduce(
         function (p, v) {
             p.count++;
@@ -133,3 +136,41 @@ function  show_average_adultMortality(ndx) {
         .yAxis().ticks(20);
 }
 
+function show_life_expectancy_vs_GDP(ndx){
+        var statusColors = d3.scale.ordinal()
+            .domain(["Developed"], ["Developing"])
+            .range(["grey", "blue"]);
+        var gnpDim = ndx.dimension(function (p) {
+            return parseInt(p.GDP);
+        });
+
+        var minGNP = gnpDim.bottom(1)[0].GDP;
+        var maxGNP = gnpDim.top(1)[0].GDP;
+
+        var lifeAndMoneyDim = ndx.dimension(function (p) {
+            return [p.GDP, p.LifeExpectancy, p.Status, p.Country];
+        });
+        var lifeAndMoneyGroup = lifeAndMoneyDim.group();
+
+        dc.scatterPlot("#life-expectancy-vs-gdp")
+            .width(1000)
+            .height(400)
+            .x(d3.scale.linear().domain([0, 88000]))
+            .y(d3.scale.linear().domain(["50", "90"]))
+            .brushOn(false)
+            .symbolSize(8)
+            .clipPadding(1)
+            .yAxisLabel("Life Expectancy")
+            .xAxisLabel(" Gross National Income (GNI) per capita at purchasing power parity (PPP)")
+            .title(function (q) {
+                return q.key[3];
+            })
+            .colorAccessor(function (c) {
+                return c.key[2];
+            })
+            .colors(statusColors)
+            .dimension(lifeAndMoneyDim)
+            .group(lifeAndMoneyGroup)
+            .margins({top: 40, right: 50, bottom: 50, left: 50})
+            .transitionDuration(750);
+}
