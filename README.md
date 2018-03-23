@@ -23,6 +23,9 @@ and life expectancy. The country data points are color coded into developed and 
  showing what each country it represents.
 
 Each chart is interconnected and one action on one reflects in the other charts.
+
+Note that as these charts use D3.js the webpages are not mobile-ready (responsive) as D3.js is designed for 
+desktop or large-screen viewing.
  
  ###Technologies Used
 + HTML5
