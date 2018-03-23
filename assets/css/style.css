@@ -1,15 +1,19 @@
 .section-heading, #discipline-selector {
 	display: inline-block;
 	float: none;
-	margin: 15px;
+	margin: 19px;
 	color: #fafafa;
 }
 
 #country-selector {
+	display: inline;
 	margin-left: 15px;
-	margin-top: 15px;
 }
 
 #status-balance-pie {
 	height: 350px;
+}
+
+.text-center {
+	text-align: center;
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>World Health Organisation Country Data 2015</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.10/dc.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/dc.min.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
     <script type="text/javascript" src="assets/js/d3.min.js"></script>
@@ -15,27 +15,30 @@
     <script type="text/javascript" src="assets/js/queue.min.js"></script>
     <script type="text/javascript" src="assets/js/graph.js"></script>
 </head>
+
 <body>
+
     <nav class="navbar navbar-default">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">World Health Organisation Country Data 2015</a>
-            <div id="country-selector"></div>
-            <h4 class="section-heading">Choose Country</h4>
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">World Health Organisation Country Data 2015</a>
+
+            </div>
         </div>
     </nav>
 
     <main>
-        <section class="section">
-            <div class="container">
+        <div class="container">
+            <section class="section">
+            <div class="jumbotron">
+                <h2 class="display-3 text-center">Developed and Developing Countries Life Expectancy Correlation </h2>
+                <hr class="my-4">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">
-                        <p>Some explaination text could go here...</p>
+                        <p class="lead">This dashboard uses World Health Organisation data from 2015. The data is used to explore correlations between developed and devoloping countries and whether their gross national
+                        income per capita corrolates with life expectancy.</p>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12">
-                        <h5 class="section-heading">Developed vs Developing:</h5>
-                    </div>
+                    <div id="country-selector" class="custom-select lead">Country Selector </div>
                 </div>
             </div>
         </section>
@@ -47,9 +50,27 @@
                     <div class="col-xs-12 col-sm-4 text-center custom-chart" id="average-adult-mortality"></div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 text-center custom-chat" id="life-expectancy-vs-gdp"></div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                         <p class="section-paragraph">Developing countries outnumber developed 4 to 1</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                         <p class="section-paragraph">Overall developed countries live 11 years longer</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 text-center">
+                         <p class="section-paragraph">Adults between 15 - 65 are 2.2 times more likely to die</p>
+                    </div>
+                </div>
+                <hr>
+                <hr>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h4 class="section-paragraph">There is a strong correlation between gross nation income (GNI)
+                            per capita based on purchasing power parity (PPP) and life expectancy. </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 text-center custom-chart" id="life-expectancy-vs-gdp"></div>
                 </div>
             </div>
         </section>
+        </div>
     </main>
 </body>
