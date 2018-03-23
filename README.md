@@ -1,17 +1,17 @@
-#Life Expectancy Correlations
+# Life Expectancy Correlations
 
-###Where can I find it?
+### Where can I find it?
 [You can find it by clicking right here!](https://spencerbarriball.github.io/Life-Expectancy-Correlation/)
 
-###What does it do?
+### What does it do?
 It shows visual representation of data from World Health Organisation country data from 2015.
 
-###What does it fulfil?
+### What does it fulfil?
 It explores the data and splits the countries into developed and developing and graphically shows whether there is 
 any correlation between life expectancy and gross national income per capita.
 
-###Functionality of the project
-There is a dropdown select box which allows each country to be chosen individually.
+### Functionality of the project
+There is a drop down select box which allows each country to be chosen individually.
 
 There is a pie chart graphically showing numbers of developed and developing countries.
 
@@ -35,7 +35,7 @@ Each chart is interconnected and one action on one reflects in the other charts.
 
 ###How was it deployed and tested
 By using Git locally as my VCS (Version Control System) and then uploading to Github. 
-It was tested by selecting countries on the dropdown list and interacting with each graph element and seeing the 
+It was tested by selecting countries on the drop down list and interacting with each graph element and seeing the 
 changes in others. It was also cross-checked with the original comma separated value file to ensure the correct data 
 was being reported.   
      
