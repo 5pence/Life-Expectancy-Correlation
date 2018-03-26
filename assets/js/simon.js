@@ -1,16 +1,14 @@
 var turn = 0; //current turn
 var turnTick = 0; // current place in turn
 var playerTick = 0;
-var score = 0; //current score
 var active = false; //whether a turn is active or not
-var handler = false; // whether the click and sound handlers are active
 var prefillSequenceArray = []; //array containing 40 sequence numbers 1-4 to correspond to pads
 var playerSequence = []; //array containing the users pad selections
 var greenSound = document.getElementById("green-audio"); //for audio
 var redSound = document.getElementById("red-audio");
 var yellowSound = document.getElementById("yellow-audio");
 var blueSound = document.getElementById("blue-audio");
-var animateDuration = 150;
+var gameOverSound = document.getElementById("game-over");
 
 $(document).ready(function () {
     $("#startBtn").click(function() {
@@ -20,23 +18,23 @@ $(document).ready(function () {
     $(".pad").click(function () {
         id = $(this).attr("id");
             if (id == 0 && active == true) {
-                animate_pad(0, 'green-pad');
-                playerSequence.push(0);
-                check_player_input();
-            }
-            if (id == 1 && active == true) {
-                animate_pad(1, 'red-pad');
+                animate_green_pad();
                 playerSequence.push(1);
                 check_player_input();
             }
-            if (id == 2 && active == true) {
-                animate_pad(2, 'yellow-pad');
+            if (id == 1 && active == true) {
+                animate_red_pad();
                 playerSequence.push(2);
                 check_player_input();
             }
-            if (id == 3 && active == true) {
-                animate_pad(3, 'blue-pad');
+            if (id == 2 && active == true) {
+                animate_yellow_pad();
                 playerSequence.push(3);
+                check_player_input();
+            }
+            if (id == 3 && active == true) {
+                animate_blue_pad();
+                playerSequence.push(4);
                 check_player_input();
             }
 
@@ -44,13 +42,17 @@ $(document).ready(function () {
 })
 
 function begin_new_game() {
+    $("#current-score").text(0);
+    prefillSequenceArray = [];
+    turn = 0;
+    active = false;
     get_random_number();
     show_sequence();
 
 }
 
 function get_random_number() {
-    prefillSequenceArray.push(Math.floor((Math.random()*4 )));
+    prefillSequenceArray.push(Math.floor((Math.random()*4) +1));
     console.log(prefillSequenceArray);
 }
 
@@ -60,103 +62,73 @@ function show_sequence() {
     playerSequence = [];
     turn++;
     var tickInterval = setInterval(function () {
-        if (turnTick < turn) {
-            colour = $('#' + prefillSequenceArray[turnTick]).attr("class");
-            console.log(colour);
-            colour = colour.split(' ')[0];
-            animate_pad(prefillSequenceArray[turnTick], colour);
-            turnTick ++;
-            if(turnTick != prefillSequenceArray.length) {
-                clearInterval(tickInterval);
-            }
-        } else {
+        if (prefillSequenceArray.length === turnTick) {
             active = true;
+            clearInterval(tickInterval);
         }
-    }, 1000);
-}
-    //
-    //
-    //
-    //     if (prefillSequenceArray[turnTick] === 1 && turnTick < turn) {
-    //         console.log(prefillSequenceArray[turnTick])
-    //         animate_green_pad();
-    //         turnTick ++;
-    //     }
-    //     if(prefillSequenceArray[turnTick] === 2 && turnTick < turn) {
-    //         console.log(prefillSequenceArray[turnTick])
-    //         animate_red_pad();
-    //         turnTick ++;
-    //     }
-    //     if (prefillSequenceArray[turnTick] === 3 && turnTick < turn) {
-    //         console.log(prefillSequenceArray[turnTick])
-    //         animate_yellow_pad();
-    //         turnTick ++;
-    //     }
-    //     if (prefillSequenceArray[turnTick] === 4 && turnTick < turn) {
-    //         console.log(prefillSequenceArray[turnTick])
-    //         animate_blue_pad();
-    //         turnTick ++;
-    //     }
-    //     else {
-    //         active = true;
-    //         clearInterval(tickInterval);
-    //     }
-    // }, 1000);
+        if (prefillSequenceArray[turnTick] === 1) {
+            var controller = animate_green_pad();
+        }
+        if (prefillSequenceArray[turnTick] === 2) {
+            var controller = animate_red_pad();
+        }
+        if (prefillSequenceArray[turnTick] === 3) {
+            var controller = animate_yellow_pad();
+        }
+        if (prefillSequenceArray[turnTick] === 4) {
+            var controller = animate_blue_pad();
+        }
+        turnTick++;
 
-function animate_pad(id, colour) {
-    $('#'+id).addClass(colour+'-active');
-    //play sound somehow...
+    }, 800);
+}
+
+function animate_green_pad() {
+    $(".green-pad").animate({opacity: 1}, 200);
+    greenSound.play();
     setTimeout(function () {
-        $('#'+id).removeClass(colour+'-active');
-    }, 500);
+        $(".green-pad").animate({opacity: 0.6}, 200)}, 400);
+    return true;
 }
 
-// function animate_green_pad() {
-//     $(".green-pad").addClass("green-pad-active");
-//     greenSound.play();
-//     setTimeout(function () {
-//         $(".green-pad").removeClass("green-pad-active");
-//     }, 500);
-// }
-//
-// function animate_red_pad() {
-//     $(".red-pad").addClass("red-pad-active");
-//     redSound.play();
-//     setTimeout(function () {
-//         $(".red-pad").removeClass("red-pad-active");
-//     }, 500);
-// }
-//
-// function animate_yellow_pad() {
-//     $(".yellow-pad").addClass("yellow-pad-active");
-//     yellowSound.play();
-//     setTimeout(function () {
-//         $(".yellow-pad").removeClass("yellow-pad-active");
-//     }, 500);
-// }
-//
-// function animate_blue_pad() {
-//     $(".blue-pad").addClass("blue-pad-active");
-//     blueSound.play();
-//     setTimeout(function () {
-//         $(".blue-pad").removeClass("blue-pad-active");
-//     }, 500);
-// }
+function animate_red_pad() {
+    $(".red-pad").animate({opacity: 1}, 200);
+    redSound.play();
+    setTimeout(function () {
+        $(".red-pad").animate({opacity: 0.6}, 200)}, 400);
+    return true;
+}
 
+function animate_yellow_pad() {
+    $(".yellow-pad").animate({opacity: 1}, 200);
+    yellowSound.play();
+    setTimeout(function () {
+        $(".yellow-pad").animate({opacity: 0.6}, 200)}, 400);
+    return true;
+}
 
-//TODO: use for loop bug here--->
+function animate_blue_pad() {
+    $(".blue-pad").animate({opacity: 1}, 200);
+    blueSound.play();
+    setTimeout(function () {
+        $(".blue-pad").animate({opacity: 0.6}, 200)}, 400);
+    return true;
+}
 function check_player_input() {
     playerTick ++;
     if (prefillSequenceArray[playerTick-1] == playerSequence[playerTick-1]) {
-        if (playerSequence.length === turn) {
+        if (playerSequence.length == turn) {
             active = false;
+            $("#current-score").text(turn);
             get_random_number();
             setTimeout(show_sequence, 1000);
         }
         return;
 
     } else {
-        //play a wrong sound
-        alert("Game Over");
+        active = false;
+        gameOverSound.play();
+
+
     }
 }

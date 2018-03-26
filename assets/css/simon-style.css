@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Press+Start+2P');
+
+body {
+    background-color: #333;
+}
+.simon-game-wrapper {
+    margin-top: 5vh;
+    margin-left: 3vh;
+}
+
+.simon-back-circle {
+    position: absolute;
+    width: 660px;
+    height: 660px;
+    background: black;
+    border-radius: 330px;
+    z-index: 1;
+}
+
+.simon-circle {
+    position: absolute;
+    top: 195px;
+    left: 195px;
+    width: 270px;
+    height: 270px;
+    background: black;
+    border-radius: 135px;
+    z-index: 10;
+}
+
+.green-pad {
+    width: 300px;
+    height: 300px;
+    margin: 15px;
+    float: left;
+    z-index: 5;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    border-top-left-radius: 300px;
+    background-color: #00ff00;
+}
+
+.geen-pad-active {
+    background-color: #66ff66 !important;
+}
+
+.red-pad {
+    width: 300px;
+    height: 300px;
+    float: left;
+    z-index: 5;
+    margin: 15px;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    border-top-right-radius: 300px;
+    background-color: #ff0000;
+}
+
+.red-pad-active {
+    background-color: #ff6666 !important;
+}
+
+.yellow-pad {
+    width: 300px;
+    height: 300px;
+    float: left;
+    z-index: 5;
+    margin: 15px;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    border-bottom-left-radius: 300px;
+    border-top-right-radius: 100px;
+    background-color: #ffff00;
+}
+
+.yellow-pad-active {
+    background-color: #ffff99 !important;
+}
+
+.blue-pad {
+    width: 300px;
+    height: 300px;
+    float: left;
+    z-index: 5;
+    margin: 15px;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+    border-bottom-right-radius: 300px;
+    background-color: #0000ff;
+}
+
+.blue-pad-active {
+    background-color: #6666ff !important;
+}
+.game-name {
+    position: absolute;
+    color: #fafafa;
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 40px;
+    text-align: center;
+    margin-left: 250px;
+    margin-top: 250px;
+    z-index: 15;
+}
+
+.score-window {
+    width: 80px;
+    height: 50px;
+    z-index: 15;
+    position: absolute;
+    margin-left: 280px;
+    margin-top: 310px;
+    background-color: #222222;
+    border-radius: 15px;
+    color: #fafafa;
+    font-size: 40px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: right;
+
+}
+
+.start-control-position {
+    width: 90px;
+    z-index: 15;
+    position: absolute;
+    margin-left: 285px;
+    margin-top: 385px;
+}
+
+.start-button {
+    width: 90px;
+    height: 35px;
+    text-align: center;
+    font-size: 18px;
+    color: #fafafa;
+    border-radius: 25px;
+    background-color: #7f8177 ;
+}
