@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/simon-style.css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+    <title>Simon Game</title>
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header full-width">
+                <a href="index.html" class="navbar-brand">Back To World Health Organisation Country Data 2015</a>
+            </div>
+        </div>
+    </nav>
+<div class="simon-game-wrapper">
+    <div class="simon-back-circle">
+        <div class="green-pad pad" id="0">
+            <audio id="green-audio">
+                <source src="assets/sounds/sounds_01.mp3" type="audio/mpeg"/>
+                <source src="assets/sounds/sounds_01.ogg" type="audio/ogg"/>
+            </audio>
+        </div>
+
+        <div class="red-pad pad" id="1">
+            <audio id="red-audio">
+                <source src="assets/sounds/sounds_02.mp3" type="audio/mpeg"/>
+                <source src="assets/sounds/sounds_02.ogg" type="audio/ogg"/>
+            </audio>
+        </div>
+
+        <div class="yellow-pad pad" id="2">
+            <audio id="yellow-audio">
+                <source src="assets/sounds/sounds_03.mp3" type="audio/mpeg"/>
+                <source src="assets/sounds/sounds_03.ogg" type="audio/ogg"/>
+            </audio>
+        </div>
+        <div class="blue-pad pad" id="3">
+            <audio id="blue-audio">
+                <source src="assets/sounds/sounds_04.mp3" type="audio/mpeg"/>
+                <source src="assets/sounds/sounds_04.ogg" type="audio/ogg"/>
+            </audio>
+        </div>
+
+        <div class="simon-circle"></div>
+        <div class="game-name">SIMON</div>
+        <div class="score-window"><span id="current-score">0</span></div>
+        <div class="start-control-position">
+            <button class="start-button" id="startBtn">start</button>
+        </div>
+    </div>
+
+</div>
+</body>
+<audio id="game-over">
+    <source src="assets/sounds/0400.mp3" type="audio/mpeg"/>
+    <source src="assets/sounds/0400.ogg" type="audio/ogg"/>
+</audio>
+<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/js/simon.js"></script>
+</html>
