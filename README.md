@@ -27,6 +27,7 @@ Each chart is interconnected and one action on one reflects in the other charts.
 Note that as these charts use D3.js the webpage is not mobile-ready (responsive) as D3.js is designed for 
 desktop or large-screen viewing.
  
+Staring at graphs can be rather tedious, so a Simon game emulator was also added on its own page.   
  ###Technologies Used
 + HTML5
 + CSS3
@@ -35,6 +36,7 @@ desktop or large-screen viewing.
 + d3 library
 + Crossfilter library
 + Queue for data retrievals
++ jQuery
 
 ###How was it deployed and tested
 By using Git locally as my VCS (Version Control System) and then uploading to Github. 
@@ -42,4 +44,4 @@ It was tested by selecting countries on the drop down list and interacting with 
 changes in others. It was also cross-checked with the original comma separated value file to ensure the correct data 
 was being reported.   
      
-
+The Simon game was tested by playing many games, trying to hit start while a game was in process, as well as hit pads while the sequence is being shown. 
