@@ -1,7 +1,7 @@
 # Life Expectancy Correlations
 
 ### Where can I find it?
-[You can find it by clicking right here!](https://spencerbarriball.github.io/Life-Expectancy-Correlation/)
+[You can find it by clicking right here!](https://5pence.github.io/Life-Expectancy-Correlation/)
 
 ### What does it do?
 It shows visual representation of data from World Health Organisation country data from 2015.
